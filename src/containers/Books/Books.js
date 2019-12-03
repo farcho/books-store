@@ -29,14 +29,13 @@ class Books extends Component {
                                 <h1>Book List</h1>
                             </div>
                             <div className="col-md-6">
-                                <button type="button" className="btn btn-info float-right">Create New</button>
+                                <button type="button" onClick={this.createNewBook} className="btn btn-info float-right">Create New</button>
                             </div>
                         </div>
                     </div>
                     <div className="panel-body">
                         <BooksList
                             books={this.props.bookList}
-                            onCreateNewBook={this.createNewBook}
                         />
                     </div>
                 </div>

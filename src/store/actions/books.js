@@ -47,12 +47,10 @@ export const getBookListInit = () => {
 export function createNewBook(bookData, file) {
     return dispatch => {
         dispatch(createNewBookStart());
-
-        const formData = new FormData();
-        formData.append('file', file, bookData.name + bookData.author)
-
         axios.post('/books', bookData)
             .then(response => {
+                const formData = new FormData();
+                formData.append('file', file, `file-${response.data.data.id}`)
                 dispatch(uploadFile(formData));
             })
             .catch(error => {
