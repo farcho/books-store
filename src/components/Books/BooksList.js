@@ -21,6 +21,9 @@ const BooksList = (props) => {
                             Key Words
                         </Table.HeaderCell>
                         <Table.HeaderCell textAlign="center">
+                            Download
+                        </Table.HeaderCell>
+                        <Table.HeaderCell textAlign="center">
                             Status
                         </Table.HeaderCell>
                     </Table.Row>
@@ -44,7 +47,15 @@ const BooksList = (props) => {
                                     </Table.Cell>
                                     <Table.Cell textAlign="center">
                                         <button
-                                            onClick={props.onCreateNewBook()}
+                                            className="btn btn-primary"
+                                            type="button"
+                                            onClick={() => window.open(book.downloadLink, '_blank')}>
+                                            Download
+                                        </button>
+                                    </Table.Cell>
+                                    <Table.Cell textAlign="center">
+                                        <button
+                                            onClick={() => props.changeBookStatus(book.id, book.active)}
                                             type="button"
                                             className={book.active ? 'btn btn-success' : 'btn btn-danger'}>
                                             {book.active ? 'Enabled' : 'Disabled'}

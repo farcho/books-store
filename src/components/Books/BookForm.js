@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from '../../axios-api';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-
+import { Header } from 'semantic-ui-react'
 import { bookControls, checkValidity } from '../../utils'
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
 import classes from '../../containers/Auth/Auth.css';
 import * as bookActions from '../../store/actions/books';
 
@@ -67,9 +66,10 @@ class BookForm extends Component {
 
         return (
             <div className={classes.Auth}>
+                <Header as='h2'>Create New Book</Header>
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success">SUBMIT</Button>
+                    <button type="submit" className={`${'btn btn-info'} ${classes.submit}`} btnType="Success">SUBMIT</button>
                 </form>
             </div>
         );

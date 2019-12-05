@@ -7,6 +7,22 @@
     box-sizing: border-box;
 }
 
+.noresults {
+    text-align: center;
+    margin: 20px;
+    font-weight: bolder;
+}
+
+/* input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+} */
+
 @media (min-width: 900px) {
     .Books {
         width: 1200px;

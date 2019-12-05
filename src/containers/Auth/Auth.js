@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { authControls, checkValidity } from '../../utils'
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/auth';
 
@@ -55,7 +54,7 @@ class Auth extends Component {
             <div className={classes.Auth}>
                 <form onSubmit={this.submitHandler}>
                     {form}
-                    <Button btnType="Success">SUBMIT</Button>
+                    <button className={`${'btn btn-info'} ${classes.submit}`} type="submit">LOG IN</button>
                 </form>
             </div>
         );

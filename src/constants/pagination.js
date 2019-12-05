@@ -1,0 +1,1 @@
+export const PAGINATION_RECORDS_LIMIT = 2;
