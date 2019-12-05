@@ -11,11 +11,16 @@ import classes from './Books.css';
 
 class Books extends Component {
     state = {
-        activePage: 1
+        activePage: 1,
+        books: []
     }
 
     componentDidMount() {
         this.props.getBookList(this.state.activePage);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.bookList && (nextProps.bookList.books !== nextState.books)
     }
 
     createNewBook = () => {
@@ -30,7 +35,7 @@ class Books extends Component {
     }
 
     handlePaginationChange = async (page) => {
-        await this.setState({ activePage: page })
+        await this.setState({ activePage: page, books: this.props.bookList.books })
         this.props.getBookList(page);
     }
 

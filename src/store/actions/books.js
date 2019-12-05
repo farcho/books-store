@@ -13,7 +13,7 @@ export const CHANGE_BOOK_STATUS = createActionObject('CHANGE_BOOK_STATUS');
 export function getBookList(activePage) {
     return dispatch => {
         dispatch(getBookListStart());
-        axios.get(`/books?limit=${constants.PAGINATION_RECORDS_LIMIT}&page=${activePage}`)
+        axios.get(`/books?limit=${constants.PAGINATION_RECORDS_LIMIT}&offset=${activePage}`)
             .then(response => {
                 dispatch(getBookListSuccess(response.data.data));
             })
