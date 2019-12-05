@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Icon } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 const BooksList = (props) => {
     return (
@@ -46,16 +46,16 @@ const BooksList = (props) => {
                                         {book.keywords}
                                     </Table.Cell>
                                     <Table.Cell textAlign="center">
-                                        <button className="btn btn-primary"
+                                        <button
+                                            className="btn btn-primary"
                                             type="button"
-                                            onClick={() => window.open(book.downloadLink, '_blank')}
-                                        >
+                                            onClick={() => window.open(book.downloadLink, '_blank')}>
                                             Download
                                         </button>
                                     </Table.Cell>
                                     <Table.Cell textAlign="center">
                                         <button
-                                            onClick={props.onCreateNewBook}
+                                            onClick={() => props.changeBookStatus(book.id, book.active)}
                                             type="button"
                                             className={book.active ? 'btn btn-success' : 'btn btn-danger'}>
                                             {book.active ? 'Enabled' : 'Disabled'}
